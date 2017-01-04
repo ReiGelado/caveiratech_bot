@@ -39,7 +39,7 @@ def admins(m):
 	bot.send_message(m.chat.id, '''
 Lista de Administradores:
 
-@Alobus
+@AlobusCT
 @EXPL01T3R0
 @icek1ng''')
 
@@ -50,7 +50,7 @@ def desenvolvedores(m):
 Lista de Desenvolvedores:
 
 @DavydMaker
-@Alobus''')
+@AlobusCT''')
 
 # Retornar dados do IP
 def geoip(ip):
@@ -84,10 +84,12 @@ def comando_acoes(mensagem):
 				bot.reply_to(mensagem, geoip(comando[1]))
 			except IndexError:
 				bot.reply_to(mensagem,'IP não informado.')
+			except Exception as e:
+				bot.reply_to(mensagem,'Nenhum dado da HOST foi encontrado.')
 		#else:
 		#	bot.reply_to(mensagem,'Permissão insuficiente para executar comando.')
 	else:
-		bot.reply_to(mensagem,'MANDA MSG PRA TUA MÃE FDP.') #Para que não fiquem zoando o bot em pvd, dps modifico
+		bot.reply_to(mensagem,'Função apenas para grupos.') #Para que não fiquem zoando o bot em pvd, dps modifico
 
 # Mostrar regras
 @bot.message_handler(commands=['regras'])
@@ -137,5 +139,5 @@ def on_user_joins(m):
 # Gerar log de mensagens enviadas para conversa onde o bot esteja
 @bot.message_handler(func=lambda message: True, content_types=['text'])
 def gerarlog(m):
-    print("Usuário: @"+m.from_user.username+" - Mensagem:\""+m.text+"\" - Grupo ID: " + str(m.chat.id))
+    print("Usuário: @"+m.from_user.username+" - Mensagem:\""+m.text+"\" - Chat ID: " + str(m.chat.id))
 bot.polling()
