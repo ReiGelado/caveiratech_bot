@@ -2,8 +2,30 @@
 import telebot
 import urllib.request as url
 import json
+import platform
+import os
 
 bot = telebot.TeleBot('')
+
+logo = '''
+	 ____________________________________
+	|   ____  _____  _             _     |
+	|  / ___||_   _|| |__    ___  | |_   |
+	| | |      | |  | '_ \  / _ \ | __|  |
+	| | |___   | |  | |_) || (_) || |_   |	
+	|  \____|  |_|  |_.__/  \___/  \__|  |
+	|____________________________________|'''
+
+barra = '------------------------------------------------------'
+
+so = platform.system()
+if so == 'Windows':
+	os.system("cls")
+else:
+	os.system("clear")
+
+print(logo)
+print(barra)
 
 # Verificar se usuário é admin
 def verificarAdmin(id):
