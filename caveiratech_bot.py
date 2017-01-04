@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import telebot
 import urllib.request as url
@@ -5,7 +6,7 @@ import json
 import platform
 import os
 
-bot = telebot.TeleBot('')
+bot = telebot.TeleBot('311671690:AAHnT2NcYUndE74DA-5OcvjwIXH4AWG2_d8')
 
 logo = '''
 	 ____________________________________
@@ -105,7 +106,7 @@ def comando_acoes(mensagem):
 			try:
 				bot.reply_to(mensagem, geoip(comando[1]))
 			except IndexError:
-				bot.reply_to(mensagem,'IP não informado.')
+				bot.reply_to(mensagem,'HOST não informado.')
 			except Exception as e:
 				bot.reply_to(mensagem,'Nenhum dado da HOST foi encontrado.')
 		#else:
