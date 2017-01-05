@@ -6,7 +6,7 @@ import json
 import platform
 import os
 
-bot = telebot.TeleBot('311671690:AAHnT2NcYUndE74DA-5OcvjwIXH4AWG2_d8')
+bot = telebot.TeleBot('')
 
 logo = '''
 	 ____________________________________
@@ -19,6 +19,7 @@ logo = '''
 
 barra = '------------------------------------------------------'
 
+#Verificar sistema operacional e limpar tela de acordo
 so = platform.system()
 if so == 'Windows':
 	os.system("cls")
@@ -46,7 +47,7 @@ Lista de Comandos:
 /regras - Listar regras
 /admins - Listar administradores
 /desenvolvedores - Listar desenvolvedores do BOT
-/geoip - Obter informações de geolocalização do IP informado''')
+/geoip <host> - Obter informações de geolocalização do IP informado''')
 #	else:
 #		bot.send_message(m.chat.id,'''
 #Lista de Comandos:
@@ -64,7 +65,7 @@ Lista de Administradores:
 
 @AlobusCT
 @EXPL01T3R0
-@icek1ng''')
+@ReiGel_ado''')
 
 # Mostrar lista de desenvolvedores do BOT
 @bot.message_handler(commands=['desenvolvedores'])
@@ -106,7 +107,7 @@ def comando_acoes(mensagem):
 			try:
 				bot.reply_to(mensagem, geoip(comando[1]))
 			except IndexError:
-				bot.reply_to(mensagem,'HOST não informado.')
+				bot.reply_to(mensagem,'HOST não informado.\n Exemplo: /geoip caveiratech.com')
 			except Exception as e:
 				bot.reply_to(mensagem,'Nenhum dado da HOST foi encontrado.')
 		#else:
@@ -160,7 +161,7 @@ def on_user_joins(m):
     bot.send_message(m.chat.id, "Olá " + m.new_chat_member.first_name + ", bem vindo(a) ao grupo. Leia o post fixado e respeite os membros.")
 
 # Gerar log de mensagens enviadas para conversa onde o bot esteja
-@bot.message_handler(func=lambda message: True, content_types=['text'])
+@bot.message_handler(func=lambda m: True, content_types=['text'])
 def gerarlog(m):
     print("Usuário: @"+m.from_user.username+" - Mensagem:\""+m.text+"\" - Chat ID: " + str(m.chat.id))
 bot.polling()
