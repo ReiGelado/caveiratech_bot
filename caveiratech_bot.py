@@ -47,7 +47,11 @@ Lista de Comandos:
 /regras - Listar regras
 /admins - Listar administradores
 /desenvolvedores - Listar desenvolvedores do BOT
-/geoip <host> - Obter informações de geolocalização do IP informado''')
+/geoip <host> - Obter informações de geolocalização do IP informado
+
+Caso deseja contribuir com o bot acesse o github dele:
+
+https://github.com/DavydMaker/caveiratech_bot''')
 #	else:
 #		bot.send_message(m.chat.id,'''
 #Lista de Comandos:
